@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @message = Message.new
+    #@roomにチャットルームに関する値は格納されている
     @room = Room.find(params[:room_id])
     #チャットルームに紐付いている全てのメッセージ（@room.messages）を@messagesと定義し全てのメッセージ情報に紐づくユーザー情報を、includes(:user)と記述
     @messages = @room.messages.includes(:user)
